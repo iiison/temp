@@ -1,0 +1,314 @@
+/* Make the breakpoints */
+
+@define-mixin bp $breakpoint{
+  $query: map-get ($mq-list, $breakpoint);
+
+  @if $query != null{
+
+    /* stylelint-disable media-feature-parentheses-space-inside, media-query-list-comma-newline-after */
+
+    @media ( $mq-width: nth( $query,1)){
+
+      /* stylelint-enable */
+
+      @content;
+    }
+  }
+}
+
+$col-1: calc( 100 / 12 );
+$col-2: calc( $col-1 * 2 );
+$col-3: calc( $col-1 * 3 );
+$col-4: calc( $col-1 * 4 );
+$col-5: calc( $col-1 * 5 );
+$col-6: calc( $col-1 * 6 );
+$col-7: calc( $col-1 * 7 );
+$col-8: calc( $col-1 * 8 );
+$col-9: calc( $col-1 * 9 );
+$col-10: calc( $col-1 * 10 );
+$col-11: calc( $col-1 * 11 );
+$col-12: 100;
+
+$col-5-12: calc( 100 / 5 );
+$col-7-12: calc( 100 / 7 );
+$col-8-12: calc( 100 / 8 );
+$col-9-12: calc( 100 / 9 );
+$col-10-12: calc( 100 / 10 );
+$col-11-12: calc( 100 / 11 );
+
+/* Generate The Grid By Number */
+
+@define-mixin makeGridByNumber $grid{
+
+  [ $attributeName *= "$(grid)-1" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-1" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-1" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-12%;
+    max-width: $col-12%;
+  }
+
+  [ $attributeName *= "$(grid)-2" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-2" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-2" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-6%;
+    max-width: $col-6%;
+  }
+
+  [ $attributeName *= "$(grid)-3" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-3" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-3" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-4%;
+    max-width: $col-4%;
+  }
+
+  [ $attributeName *= "$(grid)-4" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-4" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-4" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-3%;
+    max-width: $col-3%;
+  }
+
+  [ $attributeName *= "$(grid)-6" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-6" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-6" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-2%;
+    max-width: $col-2%;
+  }
+
+  [ $attributeName *= "$(grid)-7" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-7" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-7" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-7-12%;
+    max-width: $col-7-12%;
+  }
+
+  [ $attributeName *= "$(grid)-8" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-8" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-8" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-8-12%;
+    max-width: $col-8-12%;
+  }
+
+  [ $attributeName *= "$(grid)-9" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-9" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-9" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-9-12%;
+    max-width: $col-9-12%;
+  }
+
+  [ $attributeName *= "$(grid)-10" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-10" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-10" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-10-12%;
+    max-width: $col-10-12%;
+  }
+
+  [ $attributeName *= "$(grid)-11" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-11" ] > [ $attributeName *= "$(colName)-" ]{
+    flex-basis: $col-11-12%;
+    max-width: $col-11-12%;
+  }
+
+  [ $attributeName *= "$(grid)-12" ] > [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(grid)-12" ] > [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(grid)-12" ] > [ $attributeName *= "$(colName)_" ]{
+    flex-basis: $col-1%;
+    max-width: $col-1%;
+  }
+}
+
+/* Generate The Grid By Columns */
+/* TODO: Delete unused cols from here */
+
+@define-mixin makeCol $col{
+
+  [ $attributeName ~= "$(gridName)" ],
+  [ $attributeName *= "$(gridName)-" ],
+  [ $attributeName *= "$(gridName)_" ]{
+
+    > [ $attributeName *= "$(col)-1" ]{
+      flex-basis: $col-1%;
+      max-width: $col-1%;
+    }
+
+    > [ $attributeName *= "$(col)-2" ]{
+      flex-basis: $col-2%;
+      max-width: $col-2%;
+    }
+
+    > [ $attributeName *= "$(col)-3" ]{
+      flex-basis: $col-3%;
+      max-width: $col-3%;
+    }
+
+    > [ $attributeName *= "$(col)-4" ]{
+      flex-basis: $col-4%;
+      max-width: $col-4%;
+    }
+
+    > [ $attributeName *= "$(col)-5" ]{
+      flex-basis: $col-5%;
+      max-width: $col-5%;
+    }
+
+    > [ $attributeName *= "$(col)-6" ]{
+      flex-basis: $col-6%;
+      max-width: $col-6%;
+    }
+
+    > [ $attributeName *= "$(col)-7" ]{
+      flex-basis: $col-7%;
+      max-width: $col-7%;
+    }
+
+    > [ $attributeName *= "$(col)-8" ]{
+      flex-basis: $col-8%;
+      max-width: $col-8%;
+    }
+
+    > [ $attributeName *= "$(col)-9" ]{
+      flex-basis: $col-9%;
+      max-width: $col-9%;
+    }
+
+    > [ $attributeName *= "$(col)-10" ]{
+      flex-basis: $col-10%;
+      max-width: $col-10%;
+    }
+
+    > [ $attributeName *= "$(col)-11" ]{
+      flex-basis: $col-11%;
+      max-width: $col-11%;
+    }
+
+    > [ $attributeName *= "$(col)-12" ]{
+      flex-basis: $col-12%;
+      max-width: $col-12%;
+    }
+  }
+}
+
+/* Generate the offset */
+
+@define-mixin makeOff $off{
+
+  [ $attributeName ~= "$(gridName)" ],
+  [ $attributeName *= "$(gridName)-" ],
+  [ $attributeName *= "$(gridName)_" ]{
+
+    > [ data-push-left *= "$(off)-0" ]{
+      margin-left: 0;
+    }
+
+    > [ data-push-left *= "$(off)-1" ]{
+      margin-left: $col-1;
+    }
+
+    > [ data-push-left *= "$(off)-2" ]{
+      margin-left: $col-2;
+    }
+
+    > [ data-push-left *= "$(off)-3" ]{
+      margin-left: $col-3;
+    }
+
+    > [ data-push-left *= "$(off)-4" ]{
+      margin-left: $col-4;
+    }
+
+    > [ data-push-left *= "$(off)-5" ]{
+      margin-left: $col-5;
+    }
+
+    > [ data-push-left *= "$(off)-6" ]{
+      margin-left: $col-6;
+    }
+
+    > [ data-push-left *= "$(off)-7" ]{
+      margin-left: $col-7;
+    }
+
+    > [ data-push-left *= "$(off)-8" ]{
+      margin-left: $col-8;
+    }
+
+    > [ data-push-left *= "$(off)-9" ]{
+      margin-left: $col-9;
+    }
+
+    > [ data-push-left *= "$(off)-10" ]{
+      margin-left: $col-10;
+    }
+
+    > [ data-push-left *= "$(off)-11" ]{
+      margin-left: $col-11;
+    }
+
+    > [ data-push-right *= "$(off)-0" ]{
+      margin-right: 0;
+    }
+
+    > [ data-push-right *= "$(off)-1" ]{
+      margin-right: $col-1;
+    }
+
+    > [ data-push-right *= "$(off)-2" ]{
+      margin-right: $col-2;
+    }
+
+    > [ data-push-right *= "$(off)-3" ]{
+      margin-right: $col-3;
+    }
+
+    > [ data-push-right *= "$(off)-4" ]{
+      margin-right: $col-4;
+    }
+
+    > [ data-push-right *= "$(off)-5" ]{
+      margin-right: $col-5;
+    }
+
+    > [ data-push-right *= "$(off)-6" ]{
+      margin-right: $col-6;
+    }
+
+    > [ data-push-right *= "$(off)-7" ]{
+      margin-right: $col-7;
+    }
+
+    > [ data-push-right *= "$(off)-8" ]{
+      margin-right: $col-8;
+    }
+
+    > [ data-push-right *= "$(off)-9" ]{
+      margin-right: $col-9;
+    }
+
+    > [ data-push-right *= "$(off)-10" ]{
+      margin-right: $col-10;
+    }
+
+    > [ data-push-right *= "$(off)-11" ]{
+      margin-right: $col-11;
+    }
+  }
+}
+
+/* Generate the -first and - last base on MQ (as _lg-first) */
+
+@define-mixin makeFirstLast $mq{
+
+  [ $attributeName ~= "$(gridName)" ],
+  [ $attributeName *= "$(gridName)-" ],
+  [ $attributeName *= "$(gridName)_" ]{
+
+    [ $attributeName *= "$(mq)-first" ]{
+      order: -1;
+    }
+
+    [ $attributeName *= "$(mq)-last" ]{
+      order: 1;
+    }
+  }
+}
+

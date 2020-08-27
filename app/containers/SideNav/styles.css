@@ -1,0 +1,64 @@
+@import "../../styles/base/_variables.css";
+
+.navBar{
+  width: 50px;
+  background: $white;
+  position: fixed;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  z-index: 999;
+  transition: width 0.350s ease-in-out;
+  overflow: hidden;
+  overflow-y: auto;
+  border-right: 2px solid transparent;
+  box-shadow: 0 0 0 0 transparent;
+
+  &:hover{
+    width: $navbar-width;
+    box-shadow: 14px 14px 60px -10px $(main-dark)$(h-invisible);
+
+    .largeLogo{
+      opacity: 1;
+    }
+
+    .smallLogo{
+      opacity: 0;
+    }
+  }
+
+  .navLink{
+    padding-right: 0;
+  }
+}
+
+.logoCont{
+  position: relative;
+  background-image: $theme-grad;
+  height: 60px;
+}
+
+.logo{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+
+  &.largeLogo{
+    opacity: 0;
+    left: 14px;
+    top: 33px;
+  }
+
+  &.smallLogo{
+    opacity: 1;
+  }
+}
+
+.navIcon{
+  height: 20px;
+  width: auto;
+  padding-left: 10px;
+  filter: grayscale(100%);
+}
+

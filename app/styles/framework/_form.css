@@ -1,0 +1,139 @@
+/* stylelint-disable  declaration-no-important */
+
+@import "../base/_variables";
+
+:global{
+
+  textarea,
+  input[ type = "text" ],
+  input[ type = "password" ],
+  input[ type = "tel" ],
+  input[ type = "number" ],
+  input[ type = "email" ]{
+    padding: 0.32em 0.65em;
+    font-size: 16px;
+    color: $dark-3;
+    background-color: $white;
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $dark-1;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+        -webkit-text-fill-color: white !important;
+        -webkit-text-fill-color: $dark-3 !important;
+    }
+
+		&:focus{
+			border-bottom-color: $theme;
+		}
+  }
+
+  .select{
+    flex-basis: 100%;
+    position: relative;
+    border: 1px solid $disabled-2;
+
+    &:hover{
+
+      .options{
+        overflow-y: auto;
+        max-height: 250px;
+        outline-color: $disabled-2;
+      }
+    }
+  }
+
+  .select-value{
+    color: $theme;
+    font-size: 0.9em;
+    position: relative;
+    padding: 0.32em 0.65em;
+    text-transform: capitalize;
+    background-color: $base-white;
+
+    &:after{
+      content: "\f20d";
+      right: 5px;
+      font-family: icons;
+      position: absolute;
+    }
+  }
+
+  .options{
+    left: 0;
+    top: 100%;
+    width: 100%;
+    max-height: 0;
+    flex-basis: 100%;
+    overflow: hidden;
+    background-color: $base-white;
+    outline: 1px solid transparent;
+    transition: max-height 0.3s ease-in-out;
+
+    .option{
+      cursor: pointer;
+      flex-basis: 100%;
+      padding: 0.32em 0.65em;
+      text-transform: capitalize;
+      transition: all 0.3s ease-in-out;
+      border-bottom: 1px solid transparent;
+
+      &:hover{
+        border-bottom-color: $theme-1;
+      }
+
+      &.disabled-option,
+      &.default{
+        color: $disabled-5;
+      }
+    }
+  }
+
+  .time{
+
+    .margin-top-xxl{
+      margin-top: $S;
+    }
+  }
+
+  form{
+    width: 100%;
+  }
+
+  .button{
+    background-color: #2E3086;
+    color: $white;
+    border-radius: 4px 10px;
+    cursor: pointer;
+    outline: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    transition: all 200ms ease;
+
+    &:hover{
+      box-shadow: 7px 7px 20px -5px rgba(0, 0, 0, .3);
+      filter: brightness(120%);
+    }
+  }
+
+  .input-container{
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px 0 20px;
+    text-align: left;
+
+    .error{
+      position: absolute;
+      margin-left: 10px;
+      margin-top: 3px;
+      font-size: 0.7em;
+      display: inline-block;
+      text-transform: capitalize;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# see full list of options here https://github.com/browserslist/browserslist#full-list
+since 2015
+last 4 versions
+not ie <= 10
+> 5%
+

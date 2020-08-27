@@ -1,0 +1,23 @@
+/* ====================================================== *\
+                        VARIABLES
+\* ====================================================== */
+
+$gridName:   grid !default;
+$colName:   col !default;
+$attributeName: class !default;
+$gutter:    1rem !default;
+$gutter-vertical:    1rem !default;
+$mq-width: "max-width" !default;
+
+/* Screen Sizes */
+$sslg : 80rem;
+$ssmd : 64rem;
+$sssm : 48rem;
+$ssxs : 36rem;
+
+/* Screen Names */
+$snlg : lg;
+$snmd : md;
+$snsm : sm;
+$snxs : xs;
+

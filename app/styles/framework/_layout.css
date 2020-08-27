@@ -1,0 +1,177 @@
+:global {
+
+  .root {
+    position: relative;
+    z-index: 999;
+  }
+
+  .root,
+  .app {
+    height: 100%;
+    overflow: auto;
+  }
+
+  .header {
+    width: 100%;
+    display: inline-block;
+    /* background: $disabled-2; */
+
+    ul {
+      margin-right: 20px;
+
+      a {
+        padding: 10px;
+        /* color: $theme-1; */
+        display: inline-block;
+
+        &:hover {
+          color: $base-white;
+          /* background-color: $theme-1; */
+        }
+      }
+    }
+  }
+
+  .padded-left-s {
+    padding-left: $S;
+  }
+
+  .padded-left-l {
+    padding-left: $L;
+  }
+
+  .padded-left-xl {
+    padding-left: $XL;
+  }
+
+  .padded-right-l {
+    padding-right: $L;
+  }
+
+  .padded-right-s {
+    padding-right: $S;
+  }
+
+  .padded-top-l {
+    padding-top: $L;
+  }
+
+  .padded-top-s {
+    padding-top: $S;
+  }
+
+  .padded-bottom-s {
+    padding-bottom: $S;
+  }
+
+  .padded-l {
+    padding: $L;
+  }
+
+  .padded-s {
+    padding: $S;
+  }
+
+  .padded-tb-l {
+    padding: $L 0;
+  }
+
+  .padded-lr-s {
+    padding: 0 $S;
+  }
+
+  .padded-lr-l {
+    padding: 0 $L;
+  }
+
+  .padded-tb-xxl {
+    padding: $XXL 0;
+  }
+
+  .margin-left-s {
+    margin-left: $S;
+  }
+
+  .margin-right-s {
+    margin-right: $S;
+  }
+
+  .margin-top-s {
+    margin-top: $S;
+  }
+
+  .margin-top-m {
+    margin-top: $M;
+  }
+
+  .margin-top-l {
+    margin-top: $L;
+  }
+
+  .margin-top-xxl {
+    margin-top: $XXL;
+  }
+
+  .margin-top-xxxl {
+    margin-top: 50px;
+  }
+  .margin-bottom-s {
+    margin-bottom: $S;
+  }
+
+  .margin-bottom-l {
+    margin-bottom: $L;
+  }
+
+  .margin-bottom-xl {
+    margin-bottom: $XL;
+  }
+
+  .margin-bottom-xxl {
+    margin-bottom: $XXL;
+  }
+
+  .margin-bottom-m {
+    margin-bottom: $M;
+  }
+
+  .margin-tb-s {
+    margin-top: $S;
+    margin-bottom: $S;
+  }
+
+  .margin-tb-l {
+    margin-top: $L;
+    margin-bottom: $L;
+  }
+
+  .margin-tb-xl {
+    margin-top: $XL;
+    margin-bottom: $XL;
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .right-float {
+    float: right;
+  }
+
+  .half-withSpace {
+    flex-basis: 49.5%;
+  }
+
+  .v-center {
+    align-items: center;
+  }
+
+  .rounded {
+    border-radius: 50%;
+  }
+
+  .relative{
+    position: relative;
+  }
+}

@@ -1,0 +1,109 @@
+/* Add Generic styles here */
+
+@import "../base/_variables";
+
+:global{
+
+  .t-upper{
+    text-transform: uppercase;
+  }
+
+  .t-capitalize{
+    text-transform: capitalize;
+  }
+
+  .t-center{
+    text-align: center;
+  }
+
+  .t-left{
+    text-align: left;
+  }
+
+  .t-right{
+    text-align: right;
+  }
+
+  .t-underline{
+    text-decoration: underline;
+  }
+
+  .regular-font{
+    font-weight: $font-normal;
+  }
+
+  .bold{
+    font-weight: $font-semi-bold;
+  }
+
+  .bolder{
+    font-weight: $font-bold;
+  }
+
+  .italic{
+    font-style: italic;
+  }
+
+  .white-background{
+    background-color: $white;
+  }
+
+  .positive{
+    color: $positive;
+  }
+
+  .error{
+    color: $negative;
+  }
+
+  .normal-color{
+    color: $main-dark;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .dollar:before{
+    content: "\0024";
+  }
+
+  .pageHead{
+    margin-bottom: 1em;
+  }
+
+  .small-header{
+    font-size: $S;
+    font-weight: $font-bold;
+  }
+
+  .primary-color{
+    color: $theme;
+  }
+
+  .fade-enter{
+    opacity: 0.01;
+  }
+
+  .fade-enter-active{
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+
+  .fade-exit{
+    opacity: 1;
+  }
+
+  .fade-exit-active{
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+  }
+
+  @media print{
+
+    .hidden-print{
+      display: none;
+    }
+  }
+}
+

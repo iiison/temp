@@ -1,0 +1,260 @@
+@import "grid-vars";
+
+@import "grid-mixins";
+
+/* ====================================================== *\
+                        Classes
+\* ====================================================== */
+
+:global{
+
+  /* GRIDS */
+
+  [ $attributeName ~= "$(gridName)" ],
+  [ $attributeName *= "$(gridName)-" ],
+  [ $attributeName *= "$(gridName)_" ]{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 (-$gutter/2);
+  }
+
+  /* COLUMNS */
+
+  [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(colName)_" ]{
+    box-sizing: border-box;
+    padding: 0 ($gutter/2) $gutter-vertical;
+    max-width: 100%;
+  }
+
+  /* Just COL and COL_ */
+
+  [ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(colName)_" ]{
+    flex: 1 1 0%;
+  }
+
+  /* JUST "COL-" */
+
+  [ $attributeName *= "$(colName)-" ]{
+    flex: none;
+  }
+
+  /* COL & GRID */
+
+  [ $attributeName ~= "$(gridName)" ][ $attributeName ~= "$(colName)" ],
+  [ $attributeName ~= "$(gridName)" ][ $attributeName *= "$(colName)-" ],
+  [ $attributeName ~= "$(gridName)" ][ $attributeName *= "$(colName)_" ],
+  [ $attributeName *= "$(gridName)-" ][ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(gridName)-" ][ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(gridName)-" ][ $attributeName *= "$(colName)_" ],
+  [ $attributeName *= "$(gridName)_" ][ $attributeName ~= "$(colName)" ],
+  [ $attributeName *= "$(gridName)_" ][ $attributeName *= "$(colName)-" ],
+  [ $attributeName *= "$(gridName)_" ][ $attributeName *= "$(colName)_" ]{
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ====================================================== *\
+                        HELPERS SUFFIXES
+  \* ====================================================== */
+
+  /* FOR GRID */
+
+  [ $attributeName *= "$(gridName)-" ]{
+
+    /* No spacing between cols : noGutter */
+
+    &[ $attributeName *= "-noGutter" ]{
+      margin: 0;
+
+      > [ $attributeName ~= "$(colName)" ],
+      > [ $attributeName *= "$(colName)-" ]{
+        padding: 0;
+      }
+    }
+
+    /* No Wrapping */
+
+    &[ $attributeName *= "-noWrap" ]{
+      flex-wrap: nowrap;
+    }
+
+    /* Horizontal alignment on center */
+
+    &[ $attributeName *= "-center" ]{
+      justify-content: center;
+    }
+
+    /* Horizontal alignment on right */
+
+    &[ $attributeName *= "-right" ]{
+      justify-content: flex-end;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    /* Vertical alignment on top */
+
+    &[ $attributeName *= "-top" ]{
+      align-items: flex-start;
+    }
+
+    /* Vertical alignment on middle */
+
+    &[ $attributeName *= "-middle" ]{
+      align-items: center;
+    }
+
+    /* Vertical alignment on bottom */
+
+    &[ $attributeName *= "-bottom" ]{
+      align-items: flex-end;
+    }
+
+    /* Orders */
+
+    &[ $attributeName *= "-reverse" ]{
+      flex-direction: row-reverse;
+    }
+
+    &[ $attributeName *= "-column" ]{
+      flex-direction: column;
+
+      > [ $attributeName *= "$(colName)-" ]{
+        flex-basis: auto;
+      }
+    }
+
+    &[ $attributeName *= "-column-reverse" ]{
+      flex-direction: column-reverse;
+    }
+
+    /* Spaces between and around cols */
+
+    &[ $attributeName *= "-spaceBetween" ]{
+      justify-content: space-between;
+    }
+
+    &[ $attributeName *= "-spaceAround" ]{
+      justify-content: space-around;
+    }
+
+    /* Equal heights columns */
+
+    &[ $attributeName *= "-equalHeight" ] > [ $attributeName ~= "$(colName)" ],
+    &[ $attributeName *= "-equalHeight" ] > [ $attributeName *= "$(colName)-" ],
+    &[ $attributeName *= "-equalHeight" ] > [ $attributeName *= "$(colName)_" ]{
+      align-self: stretch;
+
+      > *{
+        height: 100%;
+      }
+    }
+
+    /* Removes the padding-bottom */
+
+    &[ $attributeName *= "-noBottom" ] > [ $attributeName ~= "$(colName)" ],
+    &[ $attributeName *= "-noBottom" ] > [ $attributeName *= "$(colName)-" ],
+    &[ $attributeName *= "-noBottom" ] > [ $attributeName *= "$(colName)_" ]{
+      padding-bottom: 0;
+    }
+  }
+
+  /* For Col */
+
+  /* stylelint-disable no-duplicate-selectors */
+
+  [ $attributeName *= "$(colName)-" ]{
+
+    &[ $attributeName *= "-top" ]{
+      align-self: flex-start;
+    }
+
+    &[ $attributeName *= "-middle" ]{
+      align-self: center;
+    }
+
+    &[ $attributeName *= "-bottom" ]{
+      align-self: flex-end;
+    }
+
+    &[ $attributeName *= "-first" ]{
+      order: -1;
+    }
+
+    &[ $attributeName *= "-last" ]{
+      order: 1;
+    }
+  }
+
+  /* stylelint-enable */
+
+
+  /* ======================================================= *\
+                          COL SIZES
+  \* ======================================================= */
+
+  @mixin makeCol $(colName);
+
+  @mixin makeOff off;
+
+  @media ( max-width: $(sslg) ){
+
+    @mixin makeCol _$(snlg);
+
+    @mixin makeOff _$(snlg);
+
+    @mixin makeFirstLast _$(snlg);
+  }
+
+  @media ( max-width: $(ssmd) ){
+
+    @mixin makeCol _$(snmd);
+
+    @mixin makeOff _$(snmd);
+
+    @mixin makeFirstLast _$(snmd);
+  }
+  /**
+  * @media ( max-width: $(sssm) ){
+  *
+  *   @mixin makeCol _$(snsm);
+  *
+  *   @mixin makeOff _$(snsm);
+  *
+  *   @mixin makeFirstLast _$(snsm);
+  * }
+  **/
+
+  /* ======================================================= *\
+                            HIDING COLS
+  \* ======================================================= */
+
+  @media ( max-width: $(sslg) ){
+
+    [ $attributeName *= "$(snlg)-hidden" ]{
+      display: none;
+    }
+  }
+
+  @media ( max-width: $(ssmd) ){
+
+    [ $attributeName *= "$(snmd)-hidden" ]{
+      display: none;
+    }
+  }
+
+  /**
+  * @media ( max-width: $(sssm) ){
+  *
+  *   [ $attributeName *= "$(snsm)-hidden" ]{
+  *     display: none;
+  *   }
+  * }
+  * stylelint-enable
+  **/
+}
+

@@ -1,0 +1,52 @@
+/* Colors */
+
+$base-white : #FAFAFA;
+$white : #FFFFFF;
+
+/* $disabled-1 : #F8F8F8; */
+/* $disabled-2 : #D9D9D9; */
+/* $disabled-3 : #EDF0F1; */
+/* $disabled-4 : #F1F1F1; */
+/* $disabled-5 : #D5D7DB; */
+
+$theme : #4462E6;
+$theme-grad : linear-gradient(135deg, #4462e6, #1b1394);
+/* $theme-1 : #EE4055; */
+/* $theme-2 : #3A4054; */
+
+$main-dark : #333333;
+/* $dark-1 : #828796; */
+/* $dark-2 : #5D657C; */
+
+$positive : #33CA70;
+$negative : #EA4154;
+
+/* Fonts */
+$font-bold : 700;
+$font-semi-bold : 600;
+$font-normal : 400;
+
+/* $heading: 2em; */
+
+/* Margins and Paddings */
+$S: 0.62em;
+$M: 1em;
+$L: 1.23em;
+$XL: 1.5em;
+$XXL: 2em;
+
+/* Color Opacities */
+$h-visible: DD;
+$h-b-visible: 88;
+$h-a-invisible: 55;
+$h-invisible: 1A;
+
+/* Fixed Widths */
+$navbar-width: 250px;
+/* $small-image: 70px; */
+
+/* Timings */
+/* $time-fast: 0.3s; */
+/* $time-normal: 0.5s; */
+/* $time-slow: 0.7s; */
+
