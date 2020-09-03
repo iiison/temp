@@ -2,7 +2,8 @@ module.exports = {
   verbose : true,
   collectCoverage : true,
   collectCoverageFrom : [
-    '**/*.{js,jsx}',
+    '**/app/**/*.{js,jsx}',
+    '!**/app/**/*[t|T]est*.{js,jsx}',
     '!**/node_modules/**',
     '!**/build/**'
   ],
@@ -26,6 +27,7 @@ module.exports = {
     'json',
     'css'
   ],
+  testMatch : ["<rootDir>/app/**/*.test.js"],
   modulePaths : [
     '/app'
   ],
@@ -39,4 +41,3 @@ module.exports = {
   ],
   setupFilesAfterEnv : [ '<rootDir>/setupTests.js' ]
 }
-
